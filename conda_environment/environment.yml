@@ -1,0 +1,24 @@
+name: strainy
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - flye=2.9.1
+  - metabat2
+  - python>=3.8
+  - samtools>=1.14
+  - bcftools>=1.14
+  - pygraphviz
+  - matplotlib
+  - biopython
+  - python-edlib
+  - networkx>=2.6
+  - gfapy
+  - karateclub
+  - numpy
+  - pandas
+  - pysam
+  - scipy>=1.8
+  - minimap2
+  - tqdm
