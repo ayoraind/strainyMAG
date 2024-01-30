@@ -5,8 +5,9 @@ def help_message() {
         nextflow run main.nf --reads "PathToReadFile(s)" --output_dir "PathToOutputDir"  
 
         Mandatory arguments:
-         --reads                        Query fastqz file of sequences you wish to supply as input (e.g., "/MIGE/01_DATA/01_FASTQ/T055-8-*.fastq.gz")
-         --output_dir	                Output directory
+         Mandatory arguments:
+         --reads                        Query fastq.gz file of sequences you wish to supply as input (e.g., "/MIGE/01_DATA/01_FASTQ/T055-8-*.fastq.gz")
+         --output_dir                   Output directory (e.g., "/MIGE/01_DATA/03_ASSEMBLY")
 
         Optional arguments:
          --help                         This usage statement.
@@ -18,9 +19,9 @@ def help_message() {
 def version_message(String version) {
       println(
             """
-            ====================================================
-             STRAIN RESOLUTION: TAPIR Pipeline version ${version}
-            ====================================================
+            ===============================================================
+             STRAIN RESOLUTION (STRAINY): TAPIR Pipeline version ${version}
+            ===============================================================
             """.stripIndent()
         )
 
@@ -29,10 +30,10 @@ def version_message(String version) {
 
 def pipeline_start_message(String version, Map params){
     log.info "======================================================================"
-    log.info "    STRAIN RESOLUTION (STRAINY): TAPIR MLST Pipeline version ${version}"
+    log.info "    STRAIN RESOLUTION (STRAINY): TAPIR Pipeline version ${version}    "
     log.info "======================================================================"
-    log.info "Running version   : ${version}"
-    log.info "Fastq inputs      : ${params.reads}"
+    log.info "Running version         : ${version}"
+    log.info "Fastq inputs            : ${params.reads}"
     log.info ""
     log.info "-------------------------- Other parameters --------------------------"
     params.sort{ it.key }.each{ k, v ->
