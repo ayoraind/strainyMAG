@@ -22,7 +22,7 @@
 
 ## Introduction
 This pipeline attempts to resolve strains from long-read assemblies. This Nextflow pipeline was adapted from the [Strainy Github page](https://github.com/katerinakazantseva/stRainy/) and the [metagenomeStrainy_ONT_pipeline Github page](https://github.com/katerinakazantseva/MetagenomeStrainy_ONT_pipeline/).  
-The CheckM2 database directory (has to take the name 'CheckM2_database') is expected to be present in the same directory hosting the main.nf file. Because github does not accept files of size greater than 1 GB, a typical CheckM2_database is not present in this github page. This database can be downloaded [here](https://zenodo.org/records/5571251).
+The CheckM2 database directory (has to take the name 'CheckM2_database') is expected to be present in the same directory hosting the main.nf file. Because github does not accept files of size greater than 1 GB, a typical CheckM2_database is not present in this Github page. This database can be downloaded [here](https://zenodo.org/records/5571251).
 
 ## Sample command
 An example of a command to run this pipeline is:
