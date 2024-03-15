@@ -47,18 +47,18 @@ workflow  {
 	 STRAINY_SPLIT_UNITIGS(joined_ch)
 	 
 	 
-	 joined_strainy_bam_ch = STRAINY_SPLIT_UNITIGS.out.long_bam_ch.join(STRAINY_SPLIT_UNITIGS.out.long_bai_ch)
+	// joined_strainy_bam_ch = STRAINY_SPLIT_UNITIGS.out.long_bam_ch.join(STRAINY_SPLIT_UNITIGS.out.long_bai_ch)
 	 
 	 
-	 METABAT2_JGISUMMARIZEBAMCONTIGDEPTHS(joined_strainy_bam_ch)
+	// METABAT2_JGISUMMARIZEBAMCONTIGDEPTHS(joined_strainy_bam_ch)
 	 
 	 
-	 joined_strainy_ch = STRAINY_SPLIT_UNITIGS.out.strainy_gfa_ch.join(METABAT2_JGISUMMARIZEBAMCONTIGDEPTHS.out.depth_ch)
+	// joined_strainy_ch = STRAINY_SPLIT_UNITIGS.out.strainy_gfa_ch.join(METABAT2_JGISUMMARIZEBAMCONTIGDEPTHS.out.depth_ch)
 	 
 	 
-	 BINNING(joined_strainy_ch)
+	// BINNING(joined_strainy_ch)
 	 
-	 collected_bins_ch = BINNING.out.bin_ch.collect( sort: {a, b -> a[0].getBaseName() <=> b[0].getBaseName()} )
+	// collected_bins_ch = BINNING.out.bin_ch.collect( sort: {a, b -> a[0].getBaseName() <=> b[0].getBaseName()} )
 	 
 	 
 	 // I had to convert the unique key in the tuple to strings, remove '_bin' string from the key of the tuple, then remove the bracket [] from the resulting 'list'. Very crude, I know! But I just couldn't find any other way after struggling for hours
@@ -165,8 +165,8 @@ workflow  {
 	 versions_ch = versions_ch
         			.mix(FLYE_BUILD_ASSEMBLY.out.versions_ch)
         			.mix(STRAINY_SPLIT_UNITIGS.out.versions_ch)
-        			.mix(METABAT2_JGISUMMARIZEBAMCONTIGDEPTHS.out.versions_ch)
-				.mix(BINNING.out.versions_ch)
+        		//	.mix(METABAT2_JGISUMMARIZEBAMCONTIGDEPTHS.out.versions_ch)
+			//	.mix(BINNING.out.versions_ch)
 			//	.mix(MAG_QA.out.versions_ch)
 			//	.mix(INDEX_BAM.out.versions_ch)
 			//	.mix(CALL_SNP.out.versions_ch)
