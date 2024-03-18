@@ -55,7 +55,7 @@ process STRAINY_SPLIT_UNITIGS {
     publishDir "${params.output_dir}/strainy_out/${meta}_strainy_split", mode:'copy'
     
     
-    errorStrategy { task.attempt <= 5 ? "retry" : "finish" }
+    errorStrategy { task.attempt <= 5 ? "retry" : "ignore" }
     maxRetries 5
     
     input:
