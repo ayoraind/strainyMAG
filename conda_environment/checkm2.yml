@@ -1,8 +1,7 @@
 name: checkm2
 channels:
-  - bioconda
   - conda-forge
-  - defaults
+  - bioconda
 dependencies:
   - python>=3.7, <3.9
   - scikit-learn=0.23.2

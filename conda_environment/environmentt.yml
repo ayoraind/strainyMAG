@@ -2,7 +2,6 @@ name: strainy
 channels:
   - conda-forge
   - bioconda
-  - defaults
 dependencies:
   - clair3
   - checkm2

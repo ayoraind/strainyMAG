@@ -2,7 +2,6 @@ name: strainy
 channels:
   - conda-forge
   - bioconda
-  - defaults
 dependencies:
   - flye=2.9.1
   - metabat2
