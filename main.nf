@@ -154,6 +154,8 @@ workflow  {
 	// join_coverage_and_transformed_fa_ch = COUNT_MAG_COVERAGE.out.count_mag_ch.combine(transformed_fa_ch)
 	
 	 FILTER_BY_COVERAGE(COUNT_MAG_COVERAGE.out.count_mag_ch, transformed_fa_ch, BIN_TRANSFORM.out.path_transform_ch.collect())
+	 
+	 FILTER_BY_COVERAGE.out.fa_mag_ch.collect(  sort: {a, b -> a[0].getBaseName() <=> b[0].getBaseName()} ).view()
 	
 	// MAG_TRANSFORMED_QA(FILTER_BY_COVERAGE.out.fa_mag_ch.collect(  sort: {a, b -> a[0].getBaseName() <=> b[0].getBaseName()} ))
 	 

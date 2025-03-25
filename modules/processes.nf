@@ -29,7 +29,7 @@ process FLYE_BUILD_ASSEMBLY {
     if ( !valid_mode.contains(mode) )  { error "Unrecognised mode to run Flye. Options: ${valid_mode.join(', ')}" }
     """
 
-    flye $mode $reads --keep-haplotypes --meta --no-alt-contigs -i 0 --out-dir . --threads $task.cpus $args
+    flye $mode $reads --keep-haplotypes --meta --no-alt-contigs -i 0 --out-dir . --threads 1 $args
 
     mv assembly.fasta ${prefix}.fasta
     mv flye.log ${prefix}.flye.log
@@ -75,7 +75,7 @@ process STRAINY_SPLIT_UNITIGS {
     def args = task.ext.args ?: ''
     def prefix = task.ext.prefix ?: "${meta}"
     """
-    strainy.py -g $assembly_gfa -q $reads  --unitig-split-length 50 -o . -t $task.cpus -m nano --only_split True
+    strainy.py -g $assembly_gfa -q $reads  --unitig-split-length 50 -o . -t 1 -m nano --only_split True
     
     mv preprocessing_data/long_unitigs_split.bam preprocessing_data/${meta}_long_unitigs_split.bam
     mv preprocessing_data/long_unitigs_split.bam.bai preprocessing_data/${meta}_long_unitigs_split.bam.bai
@@ -84,7 +84,7 @@ process STRAINY_SPLIT_UNITIGS {
          
     cat <<-END_VERSIONS > versions.yml
     "${task.process}":
-         strainy: \$( echo '--version pre-release' )
+         strainy: \$( strainy --version  )
     END_VERSIONS
     """
 }
